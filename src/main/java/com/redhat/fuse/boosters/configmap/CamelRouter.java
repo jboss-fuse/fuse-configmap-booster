@@ -40,7 +40,6 @@ public class CamelRouter extends RouteBuilder {
             .get("/").outType(Greetings.class)
                 .route().routeId("greeting-api")
                 .setHeader("name", simple("${properties:booster.nameToGreet}"))
-                // .setHeader("name", bean(GreetingsConfiguration.class, "getNameToGreet" ))
                 .to("direct:greetingsImpl");
 
         from("direct:greetingsImpl").description("Greetings REST service implementation route")
