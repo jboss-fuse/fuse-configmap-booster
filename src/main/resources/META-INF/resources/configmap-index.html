@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Configmap Mission - Red Hat Fuse</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Configmap Mission - Red Hat Fuse</h1>
+            <p class="lead">
+                This mission provides a basic example of using a ConfigMap to externalize configuration used in an Apache Camel route. 
+                ConfigMap is an object used to inject configuration data as simple key and value pairs into one or more Linux containers.
+            </p>
+            <p class="lead">
+                This page is already invokeing the Greatings service each 5 seconds; and you can see the answer "greeting the default value".
+                If you modify the <code>booster.nameToGreet</code> value in the <code>fuse-configmap-booster</code> Configmap using the Kubernetes/Openshift console or CLI tools,
+                you will see the change reflected in the greetings service's answer.
+            </p>
+        </div>    
+
+        <div class="row">
+                <h2>Greeting service</h2>
+                <form class="form-inline">
+                    <button id="clear" type="submit" class="btn btn-success">Clear</button>
+                </form>
+                <h3>Results:</h3>
+                <pre style="min-height:20em;"><code id="greetings-result"></code></pre>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var started=true;
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+                async function callGretingsService() {
+                    while (started) {
+                        $.getJSON("/camel/greetings/", function (res) {
+                            $("#greetings-result").prepend(JSON.stringify(res) + "\n");
+                        })
+                        .fail(function () {
+                            // $("#greetings-result").prepend("Service not available... Retrying in 5 seconds \n");
+                        });
+                        await sleep(5000);
+                    }
+                }
+                $("#clear").click(function(e) {
+                    $("#greetings-result").html("");
+                    e.preventDefault();
+                });
+
+                callGretingsService();
+            });
+        </script>
+    </div>
+</body>
+</html>

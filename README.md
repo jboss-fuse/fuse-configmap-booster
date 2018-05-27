@@ -1,1 +1,0 @@
-# fuse-configmap-booster
