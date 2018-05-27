@@ -41,6 +41,19 @@ parameters:
   value: 'fabric8/s2i-java:latest'
   required: true
 objects:
+- apiVersion: "v1"
+  kind: "ServiceAccount"
+  metadata:
+    name: "qs-camel-config"
+- apiVersion: "v1"
+  kind: "RoleBinding"
+  metadata:
+    name: "qs-camel-config"
+  roleRef:
+    name: "view"
+  subjects:
+    - kind: "ServiceAccount"
+      name: "qs-camel-config"
 - apiVersion: v1
   kind: ConfigMap
   metadata:
@@ -166,6 +179,7 @@ objects:
           provider: fabric8
           group: com.redhat.fuse.boosters
       spec:
+        serviceAccountName: "qs-camel-config"
         containers:
         - env:
           - name: KUBERNETES_NAMESPACE
