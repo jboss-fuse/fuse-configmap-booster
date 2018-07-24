@@ -16,12 +16,11 @@
 package com.redhat.fuse.boosters.configmap;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.language.bean.BeanLanguage;
 import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.stereotype.Component;
 
 /**
- * A simple Camel REST DSL route that implement the greetings service.
+ * A simple Camel REST DSL route that implements the greetings service.
  * 
  */
 @Component
