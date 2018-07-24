@@ -6,7 +6,7 @@
 The Configmap mission provides a basic example of using a ConfigMap to externalize configuration used in an Apache Camel route. 
 A ConfigMap is an object used to inject configuration data as simple key and value pairs into one or more Linux containers.
 
-This booster expose a simple `api/greetings/` service that produce a response based on a configuration property in JSON format of the form `{"greetings":"Hello, default"}`.
+This booster exposes a simple `api/greetings/` service that produce a response based on a configuration property in JSON format of the form `{"greetings":"Hello, default"}`.
 Changing the configmap value will live change the service's response.
 
                 
@@ -14,7 +14,7 @@ Changing the configmap value will live change the service's response.
 
 This booster can run in the following modes:
 
-* Standalone on your machine (altough there will not be a Configmap to modify, the configuration will fall back to application.properties file)
+* Standalone on your machine (although there will not be a Configmap to modify, the configuration will fall back to `application.properties` file)
 * Single-node OpenShift cluster
 * OpenShift Online at link:{launchURL}[]
 
@@ -78,7 +78,7 @@ Wait until you can see that the pod for the `fuse-configmap-booster` application
 Click on the URL to access the greetings service application and follow the instructions on that page.
 
 == Running the booster on OpenShift Online
-You can deploy the circuit breaker booster directly to OpenShift Online when you create the project at link:{launchURL}[].
+You can deploy the configmap booster directly to OpenShift Online when you create the project at link:{launchURL}[].
 
 . Visit link:{launchURL}[].
 . At the *Deployment step*, select *Use OpenShift Online*.
