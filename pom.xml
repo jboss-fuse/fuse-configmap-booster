@@ -18,7 +18,7 @@
         <camel.version>2.21.0</camel.version>
 
         <!-- versions of Maven plugins -->
-        <fmp.version>3.5.33</fmp.version>
+        <fmp.version>3.5.40</fmp.version>
     </properties>
 
     <dependencyManagement>
