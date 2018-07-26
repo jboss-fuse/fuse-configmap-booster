@@ -15,18 +15,19 @@
 
         <spring-boot.version>1.5.12.RELEASE</spring-boot.version>
         <spring-cloud-kubernetes.version>0.2.0.RELEASE</spring-cloud-kubernetes.version>
-        <camel.version>2.21.0</camel.version>
+        <camel.version>2.21.0.fuse-000077-redhat-1</camel.version>
+        <fuse.bom.version>7.0.0.fuse-000027-redhat-1</fuse.bom.version>
 
         <!-- versions of Maven plugins -->
-        <fmp.version>3.5.40</fmp.version>
+        <fmp.version>3.5.33.fuse-000067-redhat-1</fmp.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
+                <groupId>org.jboss.redhat-fuse</groupId>
+                <artifactId>fuse-springboot-bom</artifactId>
+                <version>${fuse.bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
