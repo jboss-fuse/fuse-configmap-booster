@@ -4,27 +4,28 @@
 
 == Overview
 The Configmap mission provides a basic example of using a ConfigMap to externalize configuration used in an Apache Camel route. 
-A ConfigMap is an object used to inject configuration data as simple key and value pairs into one or more Linux containers.
+A ConfigMap is an object that you can use to inject configuration data (in simple key and value pair format) into one or more Linux containers.
 
-This booster exposes a simple `api/greetings/` service that produce a response based on a configuration property in JSON format of the form `{"greetings":"Hello, default"}`.
-Changing the configmap value will live change the service's response.
+This booster exposes a simple `api/greetings/` service that produces a response based on a configuration property in JSON format of the form `{"greetings":"Hello, default"}`.
+When the configmap value changes, the service's response changes.
 
                 
 == Deployment options
 
-This booster can run in the following modes:
+You can run this booster in the following modes:
 
-* Standalone on your machine (although there will not be a Configmap to modify, the configuration will fall back to `application.properties` file)
+* Standalone on your machine (note that, in this mode, the configuration uses an `application.properties` file instead of a Configmap)
 * Single-node OpenShift cluster
 * OpenShift Online at link:{launchURL}[]
 
-The most effective way to demonstrate the booster is to deploy and run the project on OpenShift.
+The most effective way to use this booster is to deploy and run the project on OpenShift.
+
 For more details about running this booster on a single-node OpenShift cluster, CI/CD deployments, as well as the rest of the runtime, see the link:http://appdev.openshift.io/docs/spring-boot-runtime.html[Spring Boot Runtime Guide].
 
-IMPORTANT: This booster requires Java 8 JDK or greater and Maven 3.3.x or greater.
+IMPORTANT: This booster requires Java 8 JDK or later and Maven 3.3.x or later.
 
 == Running the booster standalone on your machine
-You can run this booster as a standalone project on your local machine:
+To run this booster as a standalone project on your local machine:
 
 . Download the project and extract the archive on your local filesystem.
 . Build the project:
@@ -34,13 +35,13 @@ You can run this booster as a standalone project on your local machine:
 $ cd PROJECT_DIR
 $ mvn clean package
 ----
-. then run the services as follows:
+. Run the services:
 +
 [source,bash,options="nowrap",subs="attributes+"]
 ----
 $ mvn spring-boot:run
 ----
-. Visit link:http://localhost:8080[] and follow the instructions on that page.
+. Go to link:http://localhost:8080[] and then follow the instructions on that page.
 
 == Running the booster on a single-node OpenShift cluster
 If you have a single-node OpenShift cluster, such as Minishift or the Red Hat Container Development Kit, link:http://appdev.openshift.io/docs/minishift-installation.html[installed and running], you can deploy your booster there.
@@ -74,14 +75,15 @@ $ mvn clean -DskipTests fabric8:deploy -Popenshift
 . In your browser, navigate to the `MY_PROJECT_NAME` project in the OpenShift console.
 Wait until you can see that the pod for the `fuse-configmap-booster` application has started up.
 
-. Just above the entry for the `fuse-configmap-booster` application on the `Overview` page, there is a URL of the form `http://fuse-configmap-booster-MY_PROJECT_NAME.OPENSHIFT_IP_ADDR.nip.io`.
-Click on the URL to access the greetings service application and follow the instructions on that page.
+. Above the entry for the `fuse-configmap-booster` application on the `Overview` page, locate the URL of the form `http://fuse-configmap-booster-MY_PROJECT_NAME.OPENSHIFT_IP_ADDR.nip.io`.
+
+. Click on the URL to access the greetings service application and then follow the instructions on that page.
 
 == Running the booster on OpenShift Online
-You can deploy the configmap booster directly to OpenShift Online when you create the project at link:{launchURL}[].
+To deploy the configmap booster directly to OpenShift Online when you create the project at link:{launchURL}[]:
 
-. Visit link:{launchURL}[].
+. Go to link:{launchURL}[].
 . At the *Deployment step*, select *Use OpenShift Online*.
-. Follow the on-screen instructions to create a new *Externalized Configuration* project using the *Fuse* runtime.
+. Follow the on-screen instructions to create a new *Externalized Configuration* project by using the *Fuse* runtime.
 
-NOTE: As part of the process of creating this booster, link:{launchURL}[] sets up a project with a CI/CD deployment of this booster. You can see the status of this deployment in your Single-node OpenShift Cluster or OpenShift Online Web Console.
+NOTE: As part of the process of creating this booster, link:{launchURL}[] sets up a project with a CI/CD deployment of this booster. You can see the status of this deployment in your single-node OpenShift cluster or OpenShift Online web console.
