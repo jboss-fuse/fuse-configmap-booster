@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Configmap Mission - Red Hat Fuse</title>
+    <title>ConfigMap Mission - Red Hat Fuse</title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -11,18 +11,25 @@
 <body>
     <div class="container">
         <div>
-            <h1>Configmap Mission - Red Hat Fuse</h1>
+            <h1>ConfigMap - Red Hat Fuse</h1>
             <p class="lead">
-                This mission provides a basic example of using a ConfigMap to externalize configuration used in an Apache Camel route. 
+                This booster provides a basic example of how to use a ConfigMap to externalize configuration for an Apache Camel route. 
                 A ConfigMap is an object that you can use to inject configuration data (in simple key and value pair format) into one or more Linux containers.
             </p>
             <p class="lead">
-                This code invokes the Greetings Service every 5 seconds. The Greetings Service responds by using the <code>booster.nameToGreet</code> value from the <code>fuse-configmap-booster</code> Configmap. If you modify the <code>booster.nameToGreet</code> value by using the OpenShift console or CLI, the Greetings Service's answer reflects the changed value.
+                This page invokes the Greeting Service every 5 seconds. The Greetings Service responds by using the <code>booster.nameToGreet</code> value from the <code>fuse-configmap-booster</code> ConfigMap.
+            </p>
+            <p class="lead">
+                To demonstrate how the ConfigMap works:
+                <ul class="lead">
+                 <li>Modify the <code>booster.nameToGreet</code> value by using the OpenShift console or CLI. </li>
+                 <li>View the changed value in the Greeting Service's results window.</li>
+              </ul>
             </p>
         </div>    
 
         <div class="row">
-                <h2>Greeting service</h2>
+                <h2>Greeting Service</h2>
                 <form class="form-inline">
                     <button id="clear" type="submit" class="btn btn-success">Clear</button>
                 </form>
