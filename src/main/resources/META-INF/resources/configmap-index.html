@@ -14,12 +14,10 @@
             <h1>Configmap Mission - Red Hat Fuse</h1>
             <p class="lead">
                 This mission provides a basic example of using a ConfigMap to externalize configuration used in an Apache Camel route. 
-                ConfigMap is an object used to inject configuration data as simple key and value pairs into one or more Linux containers.
+                A ConfigMap is an object that you can use to inject configuration data (in simple key and value pair format) into one or more Linux containers.
             </p>
             <p class="lead">
-                This page is already invoking the Greetings Service every 5 seconds; and you can see the answer "greeting the default value".
-                If you modify the <code>booster.nameToGreet</code> value in the <code>fuse-configmap-booster</code> Configmap using the Kubernetes/Openshift console or CLI tools,
-                you will see the change reflected in the greetings service's answer.
+                This code invokes the Greetings Service every 5 seconds. The Greetings Service responds by using the <code>booster.nameToGreet</code> value from the <code>fuse-configmap-booster</code> Configmap. If you modify the <code>booster.nameToGreet</code> value by using the OpenShift console or CLI, the Greetings Service's answer reflects the changed value.
             </p>
         </div>    
 
@@ -39,7 +37,7 @@
                 function sleep(ms) {
                     return new Promise(resolve => setTimeout(resolve, ms));
                 }
-                async function callGretingsService() {
+                async function callGreetingsService() {
                     while (started) {
                         $.getJSON("/camel/greetings/", function (res) {
                             $("#greetings-result").prepend(JSON.stringify(res) + "\n");
@@ -55,7 +53,7 @@
                     e.preventDefault();
                 });
 
-                callGretingsService();
+                callGreetingsService();
             });
         </script>
     </div>
