@@ -1,23 +1,23 @@
 :launchURL: https://developers.redhat.com/launch
 :image: registry.access.redhat.com/fuse7/fuse-java-openshift:1.0
 
-= Configmap - Fuse Booster
+= ConfigMap - Fuse Booster
 
 == Overview
-The Configmap mission provides a basic example of using a ConfigMap to externalize configuration used in an Apache Camel route. 
+The ConfigMap mission provides a basic example of using a ConfigMap to externalize configuration used in an Apache Camel route. 
 A ConfigMap is an object that you can use to inject configuration data (in simple key and value pair format) into one or more Linux containers.
 
 This booster exposes a simple `api/greetings/` service that produces a response based on a configuration property in JSON format of the form `{"greetings":"Hello, default"}`.
-When the configmap value changes, the service's response changes.
+When the ConfigMap value changes, the service's response changes.
 
                 
 == Deployment options
 
 You can run this booster in the following modes:
 
-* Standalone on your machine (note that, in this mode, the configuration uses an `application.properties` file instead of a Configmap)
-* Single-node OpenShift cluster
+* Single-node OpenShift clustera
 * OpenShift Online at link:{launchURL}[]
+* Standalone on your machine (note that, in this mode, the configuration uses an `application.properties` file instead of a ConfigMap)
 
 The most effective way to use this booster is to deploy and run the project on OpenShift.
 
@@ -25,34 +25,12 @@ For more details about running this booster on a single-node OpenShift cluster, 
 
 IMPORTANT: This booster requires Java 8 JDK or later and Maven 3.3.x or later.
 
-== Running the booster standalone on your machine
-To run this booster as a standalone project on your local machine:
-
-. Download the project and extract the archive on your local filesystem.
-. Build the project:
-+
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ cd PROJECT_DIR
-$ mvn clean package
-----
-. Run the services:
-+
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ mvn spring-boot:run
-----
-. Go to link:http://localhost:8080[] and then follow the instructions on that page.
-
 == Running the booster on a single-node OpenShift cluster
-If you have a single-node OpenShift cluster, such as Minishift or the Red Hat Container Development Kit, link:http://appdev.openshift.io/docs/minishift-installation.html[installed and running], you can deploy your booster there.
 A single-node OpenShift cluster provides you with access to a cloud environment that is similar to a production environment.
 
-IMPORTANT: You need to run this example on Container Development Kit 3.3 or OpenShift 3.7.
-Both of these products have suitable Fuse images pre-installed. 
-If you run it in an evironment where those images are not preinstalled follow the steps described in <<single-node-without-preinstalled-images>>.
+If you have a single-node OpenShift cluster, such as Minishift or the Red Hat Container Development Kit, link:http://appdev.openshift.io/docs/minishift-installation.html[installed and running], you can deploy your booster there.
 
-To deploy your booster to a running single-node OpenShift cluster:
+To deploy this booster to a running single-node OpenShift cluster:
 
 . Download the project and extract the archive on your local filesystem.
 
@@ -70,6 +48,13 @@ $ oc login -u developer -p developer
 $ oc new-project MY_PROJECT_NAME
 ----
 
+. Change the directory to the folder that contains the extracted booster application (for example, `my_openshift/fuse-health-check-booster-master`) :
++
+[source,bash,options="nowrap",subs="attributes+"]
+----
+$ cd my_openshift/fuse-health-check-booster-master
+----
+
 . Build and deploy the project to the OpenShift cluster:
 +
 [source,bash,options="nowrap",subs="attributes+"]
@@ -80,9 +65,10 @@ $ mvn clean -DskipTests fabric8:deploy -Popenshift
 . In your browser, navigate to the `MY_PROJECT_NAME` project in the OpenShift console.
 Wait until you can see that the pod for the `fuse-configmap-booster` application has started up.
 
-. Above the entry for the `fuse-configmap-booster` application on the `Overview` page, locate the URL of the form `http://fuse-configmap-booster-MY_PROJECT_NAME.OPENSHIFT_IP_ADDR.nip.io`.
+.  On the project's `Overview` page, locate the URL for the `fuse-configmap-booster` application. The URL uses this form:
+ `http://fuse-configmap-booster-MY_PROJECT_NAME.OPENSHIFT_IP_ADDR.nip.io`.
 
-. Click on the URL to access the greetings service application and then follow the instructions on that page.
+. Click the URL to access the greetings service application and then follow the instructions on that page.
 
 === Running the booster on a single-node OpenShift cluster without preinstalled images
 To deploy your booster to a running single-node OpenShift cluster without preinstalled images:
@@ -124,10 +110,30 @@ Wait until you can see that the pod for the `fuse-configmap-booster` application
 Click on the URL to access the greetings service application and follow the instructions on that page.
 
 == Running the booster on OpenShift Online
-To deploy the configmap booster directly to OpenShift Online when you create the project at link:{launchURL}[]:
+
+To deploy this booster directly to OpenShift Online when you create the project at link:{launchURL}[]:
 
 . Go to link:{launchURL}[].
 . At the *Deployment step*, select *Use OpenShift Online*.
 . Follow the on-screen instructions to create a new *Externalized Configuration* project by using the *Fuse* runtime.
 
 NOTE: As part of the process of creating this booster, link:{launchURL}[] sets up a project with a CI/CD deployment of this booster. You can see the status of this deployment in your single-node OpenShift cluster or OpenShift Online web console.
+
+== Running the booster standalone on your machine
+To run this booster as a standalone project on your local machine:
+
+. Download the project and extract the archive on your local filesystem.
+. Build the project:
++
+[source,bash,options="nowrap",subs="attributes+"]
+----
+$ cd PROJECT_DIR
+$ mvn clean package
+----
+. Run the services:
++
+[source,bash,options="nowrap",subs="attributes+"]
+----
+$ mvn spring-boot:run
+----
+. Go to link:http://localhost:8080[] and then follow the instructions on that page.
