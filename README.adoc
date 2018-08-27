@@ -47,11 +47,11 @@ $ oc login -u developer -p developer
 $ oc new-project MY_PROJECT_NAME
 ----
 
-. Change the directory to the folder that contains the extracted booster application (for example, `my_openshift/fuse-health-check-booster-master`) :
+. Change the directory to the folder that contains the extracted booster application (for example, `my_openshift/configmap-booster-master`) :
 +
 [source,bash,options="nowrap",subs="attributes+"]
 ----
-$ cd my_openshift/fuse-health-check-booster-master
+$ cd my_openshift/fuse-configmap-booster-master
 ----
 
 . Build and deploy the project to the OpenShift cluster:
