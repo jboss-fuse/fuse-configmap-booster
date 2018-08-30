@@ -15,30 +15,23 @@
 
         <spring-boot.version>1.5.13.RELEASE</spring-boot.version>
         <spring-cloud-kubernetes.version>0.2.0.RELEASE</spring-cloud-kubernetes.version>
-        <camel.version>2.21.2</camel.version>
+        <fuse.bom.version>7.0.1.fuse-000008-redhat-4</fuse.bom.version>
 
         <!-- versions of Maven plugins -->
-        <fmp.version>3.5.40</fmp.version>
+        <fmp.version>3.5.33.fuse-000089-redhat-4</fmp.version>
 
         <!-- version of Arquillian -->
         <arquillian.cube.version>1.17.1</arquillian.cube.version>
         <arquillian.version>1.4.0.Final</arquillian.version>
-        <openshift.client.version>4.0.3</openshift.client.version>
+        <openshift.client.version>2.6.3</openshift.client.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-spring-boot-dependencies</artifactId>
-                <version>${camel.version}</version>
+                <groupId>org.jboss.redhat-fuse</groupId>
+                <artifactId>fuse-springboot-bom</artifactId>
+                <version>${fuse.bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
