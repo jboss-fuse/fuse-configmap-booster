@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>ConfigMap Mission - Red Hat Fuse</title>
+    <title>Externalized Configuration - Red Hat Fuse</title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -11,18 +11,24 @@
 <body>
     <div class="container">
         <div>
-            <h1>ConfigMap - Red Hat Fuse</h1>
+            <h1>Externalized Configuration - Red Hat Fuse</h1>
             <p class="lead">
-                This booster provides a basic example of how to use a ConfigMap to externalize configuration for an Apache Camel route. 
-                A ConfigMap is an object that you can use to inject configuration data (in simple key and value pair format) into one or more Linux containers.
+                This booster provides a basic example of how to externalize configuration for an Apache Camel route. 
+            </p>
+            <p class="lead">  For OpenShift deployments, the booster stores configuration data in a ConfigMap. A ConfigMap is an object that you can use to inject configuration data (in simple key and value pair format) into one or more Linux containers.
+            </p>
+            <p class="lead">For standalone deployments, the booster stores configuration data in an applications.properties file. 
             </p>
             <p class="lead">
-                This page invokes the Greeting Service every 5 seconds. The Greetings Service responds by using the <code>booster.nameToGreet</code> value from the <code>fuse-configmap-booster</code> ConfigMap.
+                This page invokes the Greeting Service every five seconds. The Greetings Service responds by using the <code>booster.nameToGreet</code> value from the ConfigMap (for OpenShift deployments) or a properties file (for standalone deployments).
             </p>
             <p class="lead">
-                To demonstrate how the ConfigMap works:
+                To demonstrate how the Externalized Configuration works:
                 <ul class="lead">
-                 <li>Modify the <code>booster.nameToGreet</code> value by using the OpenShift console or CLI. </li>
+                 <li>Modify the <code>booster.nameToGreet</code> value. 
+                   <p>For OpenShift deployments, modify the <code>fuse-configmap-booster</code> ConfigMap by using the OpenShift console or CLI. </p>
+                   <p>For standalone deployment, edit the <code>target/classes/application.properties</code> file.</p></li>
+                     
                  <li>View the changed value in the Greeting Service's results window.</li>
               </ul>
             </p>
