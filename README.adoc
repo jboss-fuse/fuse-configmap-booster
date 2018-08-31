@@ -1,20 +1,20 @@
 :launchURL: https://developers.redhat.com/launch
 
-= ConfigMap - Fuse Booster
+= Externalized Configration - Fuse Booster
 
 == Overview
-The ConfigMap mission provides a basic example of using a ConfigMap to externalize configuration used in an Apache Camel route. 
+The Externalized Configration mission provides a basic example of using a ConfigMap (or a properties file in the case of standalone deployments) to externalize configuration used in an Apache Camel route. 
 A ConfigMap is an object that you can use to inject configuration data (in simple key and value pair format) into one or more Linux containers.
 
 This booster exposes a simple `api/greetings/` service that produces a response based on a configuration property in JSON format of the form `{"greetings":"Hello, default"}`.
-When the ConfigMap value changes, the service's response changes.
+When the value changes, the service's response changes.
 
                 
 == Deployment options
 
 You can run this booster in the following modes:
 
-* Single-node OpenShift clustera
+* Single-node OpenShift cluster
 * OpenShift Online at link:{launchURL}[]
 * Standalone on your machine (note that, in this mode, the configuration uses an `application.properties` file instead of a ConfigMap)
 
@@ -47,11 +47,11 @@ $ oc login -u developer -p developer
 $ oc new-project MY_PROJECT_NAME
 ----
 
-. Change the directory to the folder that contains the extracted booster application (for example, `my_openshift/configmap-booster-master`) :
+. Change the directory to the folder that contains the extracted booster application (for example, `my_openshift/fuse-configmap-booster`) :
 +
 [source,bash,options="nowrap",subs="attributes+"]
 ----
-$ cd my_openshift/fuse-configmap-booster-master
+$ cd my_openshift/fuse-configmap-booster
 ----
 
 . Build and deploy the project to the OpenShift cluster:
@@ -67,7 +67,7 @@ Wait until you can see that the pod for the `fuse-configmap-booster` application
 .  On the project's `Overview` page, locate the URL for the `fuse-configmap-booster` application. The URL uses this form:
  `http://fuse-configmap-booster-MY_PROJECT_NAME.OPENSHIFT_IP_ADDR.nip.io`.
 
-. Click the URL to access the greetings service application and then follow the instructions on that page.
+. Click the URL to access the Greeting Service application and then follow the instructions on that page.
 
 == Running the booster on OpenShift Online
 
@@ -80,6 +80,7 @@ To deploy this booster directly to OpenShift Online when you create the project 
 NOTE: As part of the process of creating this booster, link:{launchURL}[] sets up a project with a CI/CD deployment of this booster. You can see the status of this deployment in your single-node OpenShift cluster or OpenShift Online web console.
 
 == Running the booster standalone on your machine
+
 To run this booster as a standalone project on your local machine:
 
 . Download the project and extract the archive on your local filesystem.
