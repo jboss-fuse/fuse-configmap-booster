@@ -69,47 +69,6 @@ Wait until you can see that the pod for the `fuse-configmap-booster` application
 
 . Click the URL to access the Greeting Service application and then follow the instructions on that page.
 
-=== Running the booster on a single-node OpenShift cluster without preinstalled images
-To deploy your booster to a running single-node OpenShift cluster without preinstalled images:
-
-. Download the project and extract the archive on your local filesystem.
-
-. Log in to your OpenShift cluster:
-+
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ oc login -u developer -p developer
-----
-
-. Create a new OpenShift project for the booster:
-+
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ oc new-project MY_PROJECT_NAME
-----
-
-. Import base images in your newly created project (MY_PROJECT_NAME):
-+
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ oc import-image fis-java-openshift:1.0 --from={image} --confirm
-----
-
-. Build and deploy the project to the OpenShift cluster:
-+
-[source,bash,options="nowrap",subs="attributes+"]
-----
-$ mvn clean -DskipTests fabric8:deploy -Popenshift -Dfabric8.generator.fromMode=istag -Dfabric8.generator.from=MY_PROJECT_NAME/fuse-java-openshift:1.0
-----
-
-. In your browser, navigate to the `MY_PROJECT_NAME` project in the OpenShift console.
-Wait until you can see that the pod for the `fuse-configmap-booster` application has started up.
-
-.  On the project's `Overview` page, locate the URL for the `fuse-configmap-booster` application. The URL uses this form:
- `http://fuse-configmap-booster-MY_PROJECT_NAME.OPENSHIFT_IP_ADDR.nip.io`.
-
-. Click the URL to access the Greeting Service application and then follow the instructions on that page.
-
 == Running the booster on OpenShift Online
 
 To deploy this booster directly to OpenShift Online when you create the project at link:{launchURL}[]:
