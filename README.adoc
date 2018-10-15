@@ -1,9 +1,9 @@
 :launchURL: https://developers.redhat.com/launch
 
-= Externalized Configration - Fuse Booster
+= Externalized Configuration - Fuse Booster
 
 == Overview
-The Externalized Configration mission provides a basic example of using a ConfigMap (or a properties file in the case of standalone deployments) to externalize configuration used in an Apache Camel route. 
+The Externalized Configuration mission provides a basic example of using a ConfigMap (or a properties file in the case of standalone deployments) to externalize configuration used in an Apache Camel route. 
 A ConfigMap is an object that you can use to inject configuration data (in simple key and value pair format) into one or more Linux containers.
 
 This booster exposes a simple `api/greetings/` service that produces a response based on a configuration property in JSON format of the form `{"greetings":"Hello, default"}`.
