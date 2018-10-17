@@ -26,7 +26,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class CamelRouter extends RouteBuilder {
 
-
     @Override
     public void configure() throws Exception {
 
@@ -35,7 +34,7 @@ public class CamelRouter extends RouteBuilder {
             .component("servlet")
             .bindingMode(RestBindingMode.json);
         
-        rest("/greetings/").description("Greeting to configured name")
+        rest("/greetings").description("Greeting to configured name")
             .get("/").outType(Greetings.class)
                 .route().routeId("greeting-api")
                 .setHeader("name", simple("${properties:booster.nameToGreet}"))
