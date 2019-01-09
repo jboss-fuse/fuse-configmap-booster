@@ -1,6 +1,5 @@
 package com.redhat.fuse.boosters.configmap;
 
-
 import io.fabric8.kubernetes.api.model.HasMetadata;
 import io.fabric8.openshift.client.OpenShiftClient;
 import org.jboss.arquillian.junit.Arquillian;
@@ -25,12 +24,14 @@ public class HttpRequestKT {
     public void templateTest() throws Exception {
         File template = new File(".openshiftio/application.yaml");
         assertTrue(template.exists());
-        HashMap<String,String> templateParameters = new HashMap<String,String>(){
-            {put("SOURCE_REPOSITORY_URL","https://github.com/jboss-fuse/fuse-configmap-booster");}
+        HashMap<String, String> templateParameters = new HashMap<String, String>() {
+            {
+                put("SOURCE_REPOSITORY_URL", "https://github.com/jboss-fuse/fuse-configmap-booster");
+            }
         };
         List<HasMetadata> resources = client.templates().load(template).process(templateParameters).getItems();
 
-        for(HasMetadata res : resources){
+        for (HasMetadata res : resources) {
             client.resource(res).createOrReplace();
         }
 

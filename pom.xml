@@ -162,9 +162,6 @@
                 <groupId>org.jboss.redhat-fuse</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${fuse.bom.version}</version>
-                <configuration>
-                    <classifier>exec</classifier>
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
