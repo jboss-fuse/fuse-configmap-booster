@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         
-        <fuse.bom.version>7.2.0.fuse-720020-redhat-00001</fuse.bom.version>
+        <fuse.bom.version>7.3.0.fuse-730058-redhat-00001</fuse.bom.version>
 
         <spring-cloud-kubernetes.version>0.2.0.RELEASE</spring-cloud-kubernetes.version>
 
