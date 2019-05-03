@@ -1,3 +1,5 @@
+Don't merge testing PR build
+
 :launchURL: https://developers.redhat.com/launch
 
 = Externalized Configuration - Fuse Booster
