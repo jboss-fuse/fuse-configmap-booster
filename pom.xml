@@ -15,7 +15,7 @@
         
         <fuse.bom.version>7.4.0.fuse-740036-redhat-00002</fuse.bom.version>
 
-        <spring-cloud-kubernetes.version>0.2.0.RELEASE</spring-cloud-kubernetes.version>
+        <org.springframework.spring-cloud-kubernetes.version>0.2.0.RELEASE</org.springframework.spring-cloud-kubernetes.version>
 
         <!-- version of Arquillian -->
         <arquillian.cube.version>1.17.1</arquillian.cube.version>
@@ -65,7 +65,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-kubernetes-config</artifactId>
-            <version>${spring-cloud-kubernetes.version}</version>
+            <version>${org.springframework.spring-cloud-kubernetes.version}</version>
         </dependency>
 
         <!-- camel -->
