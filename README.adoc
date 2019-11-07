@@ -1,5 +1,7 @@
 :launchURL: https://developers.redhat.com/launch
-:image: registry.access.redhat.com/fuse7/fuse-java-openshift:1.0
+:image-registry: registry.access.redhat.com
+:image-prefix: /fuse7/
+:image-name-version: fuse-java-openshift:1.0
 
 = Externalized Configuration - Fuse Booster
 
@@ -93,7 +95,7 @@ $ oc new-project MY_PROJECT_NAME
 +
 [source,bash,options="nowrap",subs="attributes+"]
 ----
-$ oc import-image fis-java-openshift:1.0 --from={image} --confirm
+$ oc import-image {image-name-version} --from={image-registry}{image-prefix}{image-name-version} --confirm
 ----
 
 . Change the directory to the folder that contains the extracted booster application (for example, `my_openshift/fuse-configmap-booster`) :
@@ -107,7 +109,7 @@ $ cd my_openshift/fuse-configmap-booster
 +
 [source,bash,options="nowrap",subs="attributes+"]
 ----
-$ mvn clean -DskipTests fabric8:deploy -Popenshift -Dfabric8.generator.fromMode=istag -Dfabric8.generator.from=MY_PROJECT_NAME/fuse-java-openshift:1.0
+$ mvn clean -DskipTests fabric8:deploy -Popenshift -Dfabric8.generator.fromMode=istag -Dfabric8.generator.from=MY_PROJECT_NAME/{image-name-version}
 ----
 
 . In your browser, navigate to the `MY_PROJECT_NAME` project in the OpenShift console.
