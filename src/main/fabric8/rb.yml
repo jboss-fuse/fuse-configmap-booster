@@ -4,7 +4,7 @@ metadata:
   name: "qs-camel-config"
 roleRef:
   # Add the view role to the service account
-  kind: "Role"
+  kind: "ClusterRole"
   name: "view"
 subjects:
   - kind: "ServiceAccount"
