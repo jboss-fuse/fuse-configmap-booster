@@ -15,6 +15,15 @@
 
         <fuse.bom.version>7.11.0.fuse-sb2-7_11_0-00022-redhat-00001</fuse.bom.version>
         <docker.image.version>registry.redhat.io/fuse7/fuse-java-openshift-rhel8:1.10</docker.image.version>
+
+
+        <!--
+            https://issues.redhat.com/browse/ENTESB-19256
+            https://github.com/kubernetes-client/java/issues/1580
+            https://github.com/kubernetes-client/java/issues/1606
+            https://github.com/kubernetes-client/java/pull/1628
+        -->
+        <io.kubernetes.client.version>14.0.1</io.kubernetes.client.version>
     </properties>
 
     <dependencyManagement>
@@ -53,6 +62,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-kubernetes-client-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.kubernetes</groupId>
+            <artifactId>client-java-extended</artifactId>
+            <version>${io.kubernetes.client.version}</version>
         </dependency>
 
         <!-- camel -->
