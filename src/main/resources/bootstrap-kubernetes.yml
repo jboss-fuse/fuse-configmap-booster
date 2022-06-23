@@ -1,0 +1,14 @@
+# Startup configuration for Spring-cloud-kubernetes
+spring:
+  application:
+    name: fuse-configmap-booster
+  cloud:
+    kubernetes:
+      config:
+        name: fuse-configmap-booster
+        enableApi: true
+      reload:
+        # Enable live reload on ConfigMap change (disabled for Secrets by default)
+        enabled: true
+        strategy: refresh
+        mode: event
