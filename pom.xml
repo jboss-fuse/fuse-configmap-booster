@@ -5,7 +5,7 @@
 
     <groupId>com.redhat.fuse.boosters</groupId>
     <artifactId>fuse-configmap-booster</artifactId>
-    <version>7.0.0.redhat-SNAPSHOT</version>
+    <version>7.0.0.fuse-7_12_1-00002</version>
 
     <name>Fuse :: Boosters :: Configmap</name>
 
@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <fuse.bom.version>7.12.0.fuse-7_12_0-00016-redhat-00001</fuse.bom.version>
+        <fuse.bom.version>7.12.1.fuse-7_12_1-00002</fuse.bom.version>
         <docker.image.version>registry.redhat.io/fuse7/fuse-java-openshift-rhel8:1.12</docker.image.version>
 
 
